@@ -1,15 +1,14 @@
-<template>
-   <UApp>
-    <NuxtRouteAnnouncer />
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>   
-  </UApp>
-</template>
-
 <script setup lang="ts">
-import { ref } from 'vue';
-
-const variable = ref(42);
-console.log(`The value of the variable is: ${variable.value}`);
+const toaster = { position: "top-right" };
 </script>
+
+<template>
+  <div>
+    <NuxtRouteAnnouncer />
+    <UApp :toaster="toaster">
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </UApp>
+  </div>
+</template>

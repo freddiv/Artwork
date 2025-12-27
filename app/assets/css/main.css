@@ -1,2 +1,9 @@
-@import 'tailwindcss' theme(static);
-@import '@nuxt/ui';
+/* Comic Sans font for Art Feathers and More */
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap");
+
+body,
+.font-artistic {
+  font-family: "Comic Sans MS", "Comic Neue", cursive, sans-serif;
+}
+@import "tailwindcss" theme(static);
+@import "@nuxt/ui";

@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "title": "10inch Wild Turkey Feather Embellished",
+    "image": "/images/10inch-wild-turkey-feather-embellished.webp",
+    "price": 45.0,
+    "description": "A beautifully embellished 10-inch wild turkey feather, perfect for collectors and nature lovers."
+  },
+  {
+    "id": 2,
+    "title": "Hand Painted Turkey Feather Art Framed",
+    "image": "/images/hand-painted-turckey-feather-art-framed.jpg",
+    "price": 60.0,
+    "description": "Hand-painted turkey feather art, framed and ready to display in your home or office."
+  },
+  {
+    "id": 3,
+    "title": "Handpainted Detailed Turkey Feather",
+    "image": "/images/handpainted-detailed-turkey-feather.webp",
+    "price": 50.0,
+    "description": "A detailed, handpainted turkey feather showcasing intricate artistry and vibrant colors."
+  },
+  {
+    "id": 4,
+    "title": "One of a Kind Cowboy Hat Feather",
+    "image": "/images/One-of-a-kind-cowboy-hat-feather.webp",
+    "price": 35.0,
+    "description": "A unique feather designed for cowboy hats, adding a touch of the wild west to your style."
+  },
+  {
+    "id": 5,
+    "title": "One of a Kind Metallic Gold Painted Feather",
+    "image": "/images/one-of-a-kind-metallic-gold-painted-feather.webp",
+    "price": 55.0,
+    "description": "A metallic gold painted feather, one of a kind, perfect for art lovers and collectors."
+  },
+  {
+    "id": 6,
+    "title": "Painted Embellished Turkey Feather",
+    "image": "/images/painted-embellished-turkey-feather.jpg",
+    "price": 48.0,
+    "description": "A painted and embellished turkey feather, combining natural beauty with artistic flair."
+  },
+  {
+    "id": 7,
+    "title": "Painted Goose Feather Peacock Iridescent Green Blue and Gold",
+    "image": "/images/painted-Goose-feather-peacock-iridescent-green- blue-and-gold.webp",
+    "price": 52.0,
+    "description": "A painted goose feather with peacock-inspired iridescent green, blue, and gold hues."
+  }
+]
