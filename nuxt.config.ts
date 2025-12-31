@@ -4,4 +4,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxtjs/supabase'],
   css: ['~/assets/css/main.css'],
+  supabase: {
+    redirectOptions: {
+      login: '/login',
+      callback: '/confirm',
+      exclude: ['/', '/gallery', '/gallery/**', '/artwork/**', '/cart', '/order-confirmation'],
+    }
+  }
 });

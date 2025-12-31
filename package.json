@@ -18,6 +18,7 @@
     "@nuxtjs/supabase": "2.0.3",
     "eslint": "^9.28.0",
     "nuxt": "4.2.2",
+    "pg": "^8.16.3",
     "supabase": "^2.70.5",
     "tailwindcss": "^4.1.8",
     "vue": "^3.5.16",

@@ -1,6 +1,7 @@
 import { useAuth } from "@/composables/useAuth";
 
 export async function createOrder(cart, total) {
+  const supabase = useSupabaseClient();
   const { user } = useAuth();
   if (!user.value) throw new Error("You must be signed in to place an order.");
 

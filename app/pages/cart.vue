@@ -50,6 +50,12 @@ import { useCart } from "@/composables/useCart";
 import { createOrder } from "@/composables/useOrder";
 import { computed, ref } from "vue";
 
+definePageMeta({
+  layout: "sidenav",
+  title: "Shopping Cart",
+  meta: [{ name: "description", content: "View and manage your art feather purchases" }]
+});
+
 const { cart, removeFromCart, clearCart } = useCart();
 console.log("Current cart:", cart.value);
 const total = computed(() =>
@@ -64,11 +70,7 @@ const orderSuccess = ref(false);
 
 async function checkout() {
   checkoutError.value = "";
-  if (!user.value) {
-    // Redirect to login page for checkout
-    await navigateTo("/login");
-    return;
-  }
+
   loading.value = true;
   try {
     await createOrder(cart.value, total.value);

@@ -1,42 +1,44 @@
 <template>
   <div class="container mx-auto py-8">
-    <header class="mb-8">
+    <header class="mb-12 text-center">
       <h1
-        class="text-4xl font-artistic font-bold text-center text-gray-800 drop-shadow-lg"
+        class="text-5xl font-artistic font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 bg-clip-text text-transparent feather-text-shadow mb-4"
       >
-        Gallery
+        🎨 Gallery
       </h1>
+      <p class="text-lg text-gray-600">A collection of hand-painted feather artwork, where nature meets artistry</p>
     </header>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       <div
         v-for="art in artwork"
         :key="art.id"
-        class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col items-center"
+        class="feather-card rounded-2xl overflow-hidden flex flex-col items-center group"
       >
-        <NuxtLink :to="`/artwork/${art.id}`" class="w-full">
+        <NuxtLink :to="`/artwork/${art.id}`" class="w-full relative overflow-hidden group">
           <img
             :src="art.image"
             :alt="art.title"
-            class="w-full h-64 object-cover transition-transform duration-200 hover:scale-105"
+            class="w-full h-64 object-cover group-hover:scale-110"
           />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100"></div>
         </NuxtLink>
-        <div class="p-4 flex-1 flex flex-col justify-between w-full">
+        <div class="p-6 flex-1 flex flex-col justify-between w-full">
           <NuxtLink :to="`/artwork/${art.id}`">
             <h3
-              class="text-xl font-artistic font-semibold mb-2 text-gray-800 hover:underline"
+              class="text-xl font-artistic font-semibold mb-3 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent hover:from-pink-600 hover:to-purple-600"
             >
               {{ art.title }}
             </h3>
           </NuxtLink>
-          <p class="text-gray-700 mb-4">{{ art.description }}</p>
+          <p class="text-gray-600 mb-6 leading-relaxed">{{ art.description }}</p>
           <div class="flex items-center justify-between mt-auto">
-            <span class="text-lg font-bold text-gray-800"
+            <span class="text-2xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent"
               >${{ art.price }}</span
             >
             <UButton
               @click="addToCart(art)"
-              class="focus-visible:outline-4 focus-visible:outline-yellow-400 focus-visible:outline-offset-2 focus-visible:bg-blue-700 hover:bg-blue-600 transition-colors"
-              >Add to Cart</UButton
+              class="feather-button text-white px-6 py-2 rounded-lg font-medium hover:shadow-lg"
+              >🛒 Add to Cart</UButton
             >
           </div>
         </div>

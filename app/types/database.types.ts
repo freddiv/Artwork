@@ -96,30 +96,6 @@ export type Database = {
           },
         ]
       }
-      tasks: {
-        Row: {
-          completed: boolean | null
-          created_at: string | null
-          id: number
-          title: string | null
-          user: string
-        }
-        Insert: {
-          completed?: boolean | null
-          created_at?: string | null
-          id?: number
-          title?: string | null
-          user: string
-        }
-        Update: {
-          completed?: boolean | null
-          created_at?: string | null
-          id?: number
-          title?: string | null
-          user?: string
-        }
-        Relationships: []
-      }
       users: {
         Row: {
           created_at: string | null

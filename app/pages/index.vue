@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
-  layout: "default",
+  layout: "sidenav",
   title: "Art Feathers and More",
   meta: [
     {
@@ -14,24 +14,21 @@ definePageMeta({
 
 <template>
   <div>
-    <div class="p-4">
-      <header class="mb-8">
-        <h1
-          class="text-4xl font-artistic font-bold text-center text-gray-800 drop-shadow-lg"
-        >
-          Welcome to Art Feathers and More
-        </h1>
-      </header>
+    <div class="feather-card p-8 mx-4 rounded-2xl">
       <h1
-        class="text-4xl font-extrabold mb-4 font-artistic text-gray-800 drop-shadow-lg"
+        class="text-5xl font-extrabold mb-6 font-artistic bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 bg-clip-text text-transparent feather-text-shadow"
       >
-        Welcome to Art Feathers and More
+        🪶 Welcome to Art Feathers and More
       </h1>
-      Discover and purchase original artwork by Kathryn. Explore unique pieces,
-      learn about the artist, and bring creativity into your space.
+      <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+        Discover and purchase original artwork by Kathryn. Explore unique pieces of hand-painted feather art,
+        learn about the artist, and bring natural creativity into your space. Each piece captures the delicate
+        beauty and intricate patterns found in nature's most elegant creations.
+      </p>
       <UButton
-        class="focus-visible:outline-4 focus-visible:outline-yellow-400 focus-visible:outline-offset-2 focus-visible:bg-blue-700 hover:bg-blue-600 transition-colors"
-        >Browse Gallery</UButton
+        class="feather-button text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl"
+        @click="navigateTo('/gallery')"
+        >🎨 Browse Gallery</UButton
       >
     </div>
   </div>
