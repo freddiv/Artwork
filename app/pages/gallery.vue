@@ -7,14 +7,6 @@
         🎨 Gallery
       </h1>
       <p class="text-lg text-gray-600 mb-8">A collection of hand-painted feather artwork, where nature meets artistry</p>
-      
-      <!-- FeatherButton Variants Demo -->
-      <div class="flex flex-wrap justify-center gap-4 mb-8 p-6 bg-white/50 rounded-2xl">
-        <FeatherButton feather-variant="primary" size="sm">Primary</FeatherButton>
-        <FeatherButton feather-variant="secondary" size="sm">Secondary</FeatherButton>
-        <FeatherButton feather-variant="outline" size="sm">Outline</FeatherButton>
-        <FeatherButton feather-variant="ghost" size="sm">Ghost</FeatherButton>
-      </div>
     </header>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       <GalleryItem

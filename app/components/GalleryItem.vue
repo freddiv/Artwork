@@ -21,12 +21,12 @@
         <span class="text-2xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
           ${{ art.price }}
         </span>
-        <FeatherButton
-          feather-variant="primary"
+        <UButton
+         :class="buttonClasses"
           @click="handleAddToCart"
         >
           🛒 Add to Cart
-        </FeatherButton>
+        </UButton>
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@
 
 <script setup lang="ts">
 import { useCart } from "@/composables/useCart";
-import FeatherButton from "./ui/FeatherButton.vue";
+
 
 // Define props interface
 interface Props {
@@ -52,7 +52,17 @@ const props = defineProps<Props>()
 // Use cart composable
 const { addToCart: addItemToCart } = useCart()
 
+// Compute classes based on featherVariant
+const buttonClasses = computed(() => {
+  const classes = {
+    primary: 'feather-button text-white font-medium hover:shadow-lg',
+  }
+    return classes['primary']
+})
+
+
 function handleAddToCart() {
+    console.log("Adding item to cart:", props.art)
   addItemToCart(props.art)
   const toast = useToast()
   console.log("Adding to cart:", toast)
