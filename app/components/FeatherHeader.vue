@@ -11,22 +11,22 @@
         <nav class="flex items-center space-x-8">
           <ul class="flex space-x-6">
             <li>
-              <NuxtLink to="/" class="text-white hover:text-yellow-200 px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 hover:shadow-lg" active-class="!text-yellow-300 font-semibold bg-white bg-opacity-20"
+              <NuxtLink to="/" class="text-white hover:text-indigo-400 hover:bg-white hover:bg-opacity-20 focus-visible:text-indigo-400 focus-visible:bg-white focus-visible:bg-opacity-20 px-3 py-2 rounded-lg hover:shadow-lg focus-visible:shadow-lg" active-class="!text-indigo-400 font-semibold bg-white bg-opacity-20"
                 >🏠 Home</NuxtLink
               >
             </li>
             <li>
-              <NuxtLink to="/gallery" class="text-white hover:text-yellow-200 px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 hover:shadow-lg" active-class="!text-yellow-300 font-semibold bg-white bg-opacity-20"
+              <NuxtLink to="/gallery" class="text-white hover:text-indigo-400 hover:bg-white hover:bg-opacity-20 focus-visible:text-indigo-400 focus-visible:bg-white focus-visible:bg-opacity-20 px-3 py-2 rounded-lg hover:shadow-lg focus-visible:shadow-lg" active-class="!text-indigo-400 font-semibold bg-white bg-opacity-20"
                 >🎨 Gallery</NuxtLink
               >
             </li>
             <li>
-              <NuxtLink to="/cart" class="text-white hover:text-yellow-200 px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 hover:shadow-lg" active-class="!text-yellow-300 font-semibold bg-white bg-opacity-20"
+              <NuxtLink to="/cart" class="text-white hover:text-indigo-400 hover:bg-white hover:bg-opacity-20 focus-visible:text-indigo-400 focus-visible:bg-white focus-visible:bg-opacity-20 px-3 py-2 rounded-lg hover:shadow-lg focus-visible:shadow-lg" active-class="!text-indigo-400 font-semibold bg-white bg-opacity-20"
                 >🛒 Cart</NuxtLink
               >
             </li>
             <li>
-              <NuxtLink to="/checkout" class="text-white hover:text-yellow-200 px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 hover:shadow-lg" active-class="!text-yellow-300 font-semibold bg-white bg-opacity-20"
+              <NuxtLink to="/checkout" class="text-white hover:text-indigo-400 hover:bg-white hover:bg-opacity-20 focus-visible:text-indigo-400 focus-visible:bg-white focus-visible:bg-opacity-20 px-3 py-2 rounded-lg hover:shadow-lg focus-visible:shadow-lg" active-class="!text-indigo-400 font-semibold bg-white bg-opacity-20"
                 >💳 Checkout</NuxtLink
               >
             </li>

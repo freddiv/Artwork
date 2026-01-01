@@ -1,30 +1,35 @@
 import { useAuth } from "@/composables/useAuth";
+import { useDatabase, type OrderInsert, type OrderItemInsert } from "@/composables/useDatabase";
 
-export async function createOrder(cart, total) {
-  const supabase = useSupabaseClient();
+export async function createOrder(cart: any[], total: number) {
   const { user } = useAuth();
+  const { createCompleteOrder } = useDatabase();
+  
   if (!user.value) throw new Error("You must be signed in to place an order.");
 
-  // Insert order
-  const { data: order, error: orderError } = await supabase
-    .from("orders")
-    .insert({ user_id: user.value.id, total, status: "pending" })
-    .select()
-    .single();
-  if (orderError) throw orderError;
+  const userId = user.value?.id;
+  if (!userId) throw new Error("User ID is missing.");
 
-  // Insert order items
-  const items = cart.map((item) => ({
-    order_id: order.id,
+  // Prepare order data
+  const orderData: Omit<OrderInsert, 'id'> = {
+    user_id: userId,
+    total,
+    status: "pending"
+  };
+
+  // Prepare order items data
+  const items: Omit<OrderItemInsert, 'order_id'>[] = cart.map((item) => ({
+    user_id: userId,
     artwork_id: item.id,
     title: item.title,
     price: item.price,
     qty: item.qty,
   }));
-  const { error: itemsError } = await supabase
-    .from("order_items")
-    .insert(items);
-  if (itemsError) throw itemsError;
 
-  return order;
+  // Create order with items using the database helper
+  const { data, error } = await createCompleteOrder(orderData, items);
+  
+  if (error) throw error;
+  
+  return data?.order;
 }

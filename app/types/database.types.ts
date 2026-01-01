@@ -14,6 +14,53 @@ export type Database = {
   }
   public: {
     Tables: {
+      address: {
+        Row: {
+          address1: string | null
+          address2: string | null
+          city: string | null
+          created_at: string
+          first_name: string | null
+          id: string | null
+          last_name: string | null
+          state: string | null
+          user_id: string | null
+          zip_code: string | null
+        }
+        Insert: {
+          address1?: string | null
+          address2?: string | null
+          city?: string | null
+          created_at?: string
+          first_name?: string | null
+          id?: string | null
+          last_name?: string | null
+          state?: string | null
+          user_id?: string | null
+          zip_code?: string | null
+        }
+        Update: {
+          address1?: string | null
+          address2?: string | null
+          city?: string | null
+          created_at?: string
+          first_name?: string | null
+          id?: string | null
+          last_name?: string | null
+          state?: string | null
+          user_id?: string | null
+          zip_code?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fk_address_user_id_users_id"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       artwork_stock: {
         Row: {
           artwork_id: number
@@ -32,29 +79,36 @@ export type Database = {
       order_items: {
         Row: {
           artwork_id: number | null
-          id: string
           order_id: string | null
           price: number | null
           qty: number | null
           title: string | null
+          user_id: string
         }
         Insert: {
           artwork_id?: number | null
-          id?: string
           order_id?: string | null
           price?: number | null
           qty?: number | null
           title?: string | null
+          user_id?: string
         }
         Update: {
           artwork_id?: number | null
-          id?: string
           order_id?: string | null
           price?: number | null
           qty?: number | null
           title?: string | null
+          user_id?: string
         }
         Relationships: [
+          {
+            foreignKeyName: "fk_order_items_user_id_users_id"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "order_items_order_id_fkey"
             columns: ["order_id"]
@@ -100,23 +154,35 @@ export type Database = {
         Row: {
           created_at: string | null
           email: string
+          first_name: string | null
           id: string
           is_admin: boolean | null
-          name: string | null
+          last_name: string | null
+          name: string
+          user_id: string | null
+          user_role: string | null
         }
         Insert: {
           created_at?: string | null
           email: string
+          first_name?: string | null
           id?: string
           is_admin?: boolean | null
-          name?: string | null
+          last_name?: string | null
+          name: string
+          user_id?: string | null
+          user_role?: string | null
         }
         Update: {
           created_at?: string | null
           email?: string
+          first_name?: string | null
           id?: string
           is_admin?: boolean | null
-          name?: string | null
+          last_name?: string | null
+          name?: string
+          user_id?: string | null
+          user_role?: string | null
         }
         Relationships: []
       }

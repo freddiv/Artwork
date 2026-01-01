@@ -1,7 +1,11 @@
+import { useUsers } from "@/composables/database/useUsers";
+import type { TablesInsert } from "~/types/database.types";
+
 export function useAuth() {
   const supabase = useSupabaseClient();
   const user = useSupabaseUser();
-  const error = ref(null);
+  const error = ref<any>(null);
+  const { createUser, getUserByEmail } = useUsers();
 
   async function signInWithEmail(email: string, password: string) {
     const { error: signInError } = await supabase.auth.signInWithPassword({
@@ -26,13 +30,47 @@ export function useAuth() {
     
     error.value = signUpError;
     
-    // Only create user record after email confirmation (handled by trigger or manual process)
-    // Don't create record immediately as user might not confirm email
+    // Create user profile record after successful signup
+    if (data?.user && !signUpError) {
+      const userProfile: TablesInsert<'users'> = {
+        id: data.user.id,
+        email: data.user.email!,
+        name: userData?.name || '',
+        user_role: userData?.role || 'customer',
+        is_admin: false
+      };
+      
+      // Try to create user profile (may fail if already exists due to triggers)
+      await createUser(userProfile);
+    }
   }
 
   async function signOut() {
     await supabase.auth.signOut();
   }
 
-  return { user, error, signInWithEmail, signUpWithEmail, signOut };
+  /**
+   * Get user profile data from database
+   */
+  async function getUserProfile(userId?: string) {
+    const targetUserId = userId || user.value?.id;
+    if (!targetUserId) return null;
+    
+    const { data, error: profileError } = await getUserByEmail(user.value?.email || '');
+    if (profileError) {
+      error.value = profileError;
+      return null;
+    }
+    
+    return data;
+  }
+
+  return { 
+    user, 
+    error, 
+    signInWithEmail, 
+    signUpWithEmail, 
+    signOut, 
+    getUserProfile 
+  };
 }
